@@ -1,0 +1,1336 @@
+/* ==============================
+  기본 설정
+============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+:root { --cream: #f5f1e7; --paper: #fffdf8; --brown: #6b5143; --brown-dark: #503b30; --brown-soft: #eee4d8; --ink: #352b26; --muted: #81756d; }
+
+body {
+  margin: 0;
+  background: #f5f1e7;
+  color: #352b26;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* ==============================
+   로그인 / 회원가입 화면
+============================== */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  background: #eee7dc;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 800px;
+  padding: 48px 56px;
+  background: #fffdf8;
+  border: 1px solid #e3d9cd;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* 로그인 / 회원가입 탭 */
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 6px;
+  margin-bottom: 36px;
+  background: #eee7dc;
+  border-radius: 14px;
+}
+
+.auth-tab {
+  min-height: 58px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #81756d;
+  font-size: 20px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+}
+
+.auth-tab:hover {
+  color: #6b5143;
+}
+
+.auth-tab.active {
+  background: #fffdf8;
+  color: #6b5143;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* 로그인 / 회원가입 폼 */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-field label {
+  color: #51443c;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.auth-field input {
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 16px;
+  border: 1px solid #d8cbbd;
+  border-radius: 12px;
+  background: #fffdf8;
+  color: #352b26;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.auth-field input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-field input:focus {
+  border-color: #6b5143;
+  box-shadow: 0 0 0 3px rgba(107, 81, 67, 0.16);
+}
+
+/* 로그인 / 회원가입 제출 버튼 */
+
+.auth-submit {
+  width: 100%;
+  min-height: 60px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 12px;
+  background: #80604e;
+  color: #fffdf8;
+  font-size: 19px;
+  font-weight: 800;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.auth-submit:hover {
+  background: #6b5143;
+  transform: translateY(-1px);
+}
+
+.auth-submit:disabled {
+  background: #94a3b8;
+  transform: none;
+}
+
+/* 로그인 / 회원가입 하단 안내 */
+
+.auth-footer {
+  margin: 4px 0 0;
+  color: #81756d;
+  text-align: center;
+  font-size: 15px;
+}
+
+.auth-link {
+  display: inline;
+  width: auto;
+  min-height: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #6b5143;
+  font-size: inherit;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.auth-link:hover {
+  color: #503b30;
+}
+
+/* 오류 메시지 */
+
+.auth-error {
+  margin: 0;
+  color: #dc2626;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ==============================
+   메인 화면 레이아웃
+============================== */
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+
+/* ==============================
+   사이드바
+============================== */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 24px;
+  background: #fffdf8;
+  border-right: 1px solid #e3d9cd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: #6b5143;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.logo img {
+  width: 1.67em;
+  height: 1.67em;
+  object-fit: cover;
+  border-radius: 6px;
+  flex: none;
+}
+
+.welcome-message {
+  margin: 0 0 20px;
+  color: #81756d;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 새 문서 등록 버튼 */
+
+.new-doc {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #6b5143;
+  color: #fffdf8;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.new-doc:hover {
+  background: #503b30;
+}
+
+/* 사이드 메뉴 */
+
+.side-nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.side-nav button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #475569;
+  text-align: left;
+  font-size: 15px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.side-nav button:hover {
+  background: #eee7dc;
+}
+
+.side-nav button.active {
+  background: #eee4d8;
+  color: #6b5143;
+  font-weight: 800;
+}
+
+/* 로그아웃 버튼 */
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 12px;
+  background: #fce7ec;
+  color: #e11d48;
+  font-size: 16px;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.logout-btn:hover {
+  background: #fbcfd9;
+  transform: translateY(-1px);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+.logout-icon {
+  flex-shrink: 0;
+}
+
+/* ==============================
+   메인 작업 공간
+============================== */
+
+.workspace {
+  min-width: 0;
+  padding: 32px;
+}
+
+.page-content {
+  width: 100%;
+}
+
+/* 상단 검색 영역 */
+
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.topbar input {
+  width: 100%;
+  max-width: 520px;
+  min-height: 46px;
+  padding: 12px 16px;
+  border: 1px solid #e3d9cd;
+  border-radius: 12px;
+  background: #fffdf8;
+  outline: none;
+}
+
+.topbar input:focus {
+  border-color: #6b5143;
+  box-shadow: 0 0 0 3px rgba(107, 81, 67, 0.16);
+}
+
+.topbar button {
+  min-height: 46px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #6b5143;
+  color: #fffdf8;
+  font-weight: 700;
+}
+
+.topbar button:hover {
+  background: #503b30;
+}
+
+/* 로딩 및 오류 */
+
+.notice {
+  color: #81756d;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 14px;
+}
+
+/* ==============================
+   통계 카드
+============================== */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stats div {
+  padding: 18px;
+  border: 1px solid #e3d9cd;
+  border-radius: 14px;
+  background: #fffdf8;
+}
+
+.stats strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b5143;
+  font-size: 28px;
+}
+
+.stats span {
+  color: #81756d;
+  font-size: 14px;
+}
+
+/* ==============================
+   문서 목록 / 상세 영역
+============================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.document-list,
+.detail-panel {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e3d9cd;
+  border-radius: 16px;
+  background: #fffdf8;
+}
+
+.document-list h1,
+.detail-panel h2 {
+  margin-top: 0;
+}
+
+.empty {
+  padding: 24px 0;
+  color: #81756d;
+}
+
+/* 문서 카드 */
+
+.document-card {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 16px;
+  border: 1px solid #e3d9cd;
+  border-radius: 14px;
+  background: #fffdf8;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.document-card:hover {
+  border-color: #cbb9ad;
+}
+
+.document-card.active {
+  border-color: #6b5143;
+  background: #f1e8df;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.file-type,
+.badge,
+.keywords span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.file-type {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge.normal {
+  background: #eee7dc;
+  color: #475569;
+}
+
+.badge.warning {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.badge.danger {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+/* 문서 상세 */
+
+.detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.detail-head-side {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.delete-doc-btn {
+  padding: 6px 12px;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: #e11d48;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.delete-doc-btn:hover {
+  background: #ffe4e6;
+}
+
+.delete-doc-btn:disabled {
+  opacity: 0.5;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #6b5143;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.summary-box {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f5f1e7;
+}
+
+.summary-box h3 {
+  margin-top: 0;
+}
+
+.summary-box p {
+  line-height: 1.7;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+
+/* 키워드 */
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 24px;
+}
+
+.keywords span {
+  background: #eee4d8;
+  color: #6b5143;
+}
+
+/* ==============================
+   문서별 할 일 목록
+============================== */
+
+.task-list {
+  padding: 0;
+  list-style: none;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 0;
+  border-top: 1px solid #e3d9cd;
+}
+
+.task label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task.done span {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.task-actions button,
+.add-task button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #6b5143;
+  color: #fffdf8;
+}
+
+.task-actions button:hover,
+.add-task button:hover {
+  background: #503b30;
+}
+
+/* 할 일 추가 */
+
+.add-task {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.add-task input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #e3d9cd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.add-task input:focus {
+  border-color: #6b5143;
+}
+
+/* ==============================
+   새 문서 등록 화면 (기본 레이아웃)
+============================== */
+
+.create-page {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.create-page h1 {
+  margin: 0 0 20px;
+  color: #352b26;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.document-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 32px;
+  border: 1px solid #e3d9cd;
+  border-radius: 16px;
+  background: #fffdf8;
+}
+
+.document-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #51443c;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.document-form input,
+.document-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d8cbbd;
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #352b26;
+  font: inherit;
+  font-weight: 400;
+  outline: none;
+}
+
+.document-form textarea {
+  min-height: 220px;
+  resize: vertical;
+}
+
+.document-form input:focus,
+.document-form textarea:focus {
+  border-color: #6b5143;
+  box-shadow: 0 0 0 3px rgba(107, 81, 67, 0.16);
+}
+
+.document-form small {
+  color: #81756d;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.form-help {
+  margin: 0;
+  color: #81756d;
+  font-size: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.form-actions button {
+  min-height: 48px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.form-actions button[type="button"] {
+  background: #eee7dc;
+  color: #475569;
+}
+
+.form-actions button[type="button"]:hover {
+  background: #e3d9cd;
+}
+
+.form-actions button[type="submit"] {
+  background: #6b5143;
+  color: #fffdf8;
+}
+
+.form-actions button[type="submit"]:hover {
+  background: #503b30;
+}
+
+.form-actions button[type="submit"]:disabled {
+  background: #94a3b8;
+}
+
+/* ==============================
+   CSS 추가 (7주차 슬라이드: 문서 등록 form 스타일)
+============================== */
+
+.input-mode-options {
+  background: #eee7dc;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 5px;
+}
+
+.input-mode-options button {
+  min-height: 44px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #81756d;
+  font-weight: 700;
+}
+
+.input-mode-options .active {
+  color: #6b5143;
+  background: #fffdf8;
+}
+
+.file-upload {
+  background: #f1e8df;
+  border: 1px dashed #6b5143;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px dashed #6b5143;
+  border-radius: 14px;
+  background: #f1e8df;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.link-row input {
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.link-row button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 10px;
+  background: #6b5143;
+  color: #fffdf8;
+  font-weight: 700;
+}
+
+.link-row button:hover:not(:disabled) {
+  background: #503b30;
+}
+
+.link-row button:disabled {
+  background: #94a3b8;
+}
+
+.summary-preview {
+  padding: 16px;
+  border-radius: 14px;
+  background: #f5f1e7;
+}
+
+.summary-preview strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #6b5143;
+  font-size: 14px;
+}
+
+.summary-preview p {
+  margin: 0 0 8px;
+  color: #51443c;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.optional-fields {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 16px;
+}
+
+/* ==============================
+   전체 할 일 화면
+============================== */
+
+.all-tasks-page {
+  width: 100%;
+}
+
+.tasks-heading {
+  margin-bottom: 32px;
+}
+
+.tasks-heading h1 {
+  margin: 0 0 8px;
+  color: #352b26;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.tasks-heading p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+/* 전체 할 일 탭 */
+
+/* 전체 할 일 흰색 카드 */
+
+.all-tasks-card {
+  width: 100%;
+  padding: 28px 32px;
+  border: 1px solid #e3d9cd;
+  border-radius: 16px;
+  background: #fffdf8;
+}
+
+/* 문서별 할 일 그룹 */
+
+.task-document-group {
+  margin-bottom: 36px;
+}
+
+.task-document-group:last-child {
+  margin-bottom: 0;
+}
+
+.task-document-group h3 {
+  margin: 0 0 20px;
+  color: #81756d;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* 전체 할 일 한 줄 */
+
+.all-task-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 8px 0 12px;
+}
+
+.all-task-row label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.all-task-row input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin: 2px 0 0;
+  accent-color: #80604e;
+  cursor: pointer;
+}
+
+.all-task-row span {
+  overflow-wrap: anywhere;
+}
+
+.all-task-row small {
+  flex-shrink: 0;
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 완료된 할 일 */
+
+.all-task-row.completed span {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.all-task-row.completed small {
+  color: #d8cbbd;
+}
+
+
+/* ==============================
+   설정 화면
+============================== */
+
+.settings-page {
+  width: 100%;
+  max-width: 860px;
+  padding: 8px 0;
+}
+
+.settings-header {
+  margin-bottom: 24px;
+}
+
+.settings-header h1 {
+  margin: 0 0 8px;
+  color: #51443c;
+  font-size: 28px;
+}
+
+.settings-header p,
+.settings-card-heading p {
+  margin: 0;
+  color: #81756d;
+}
+
+.settings-card {
+  margin-bottom: 18px;
+  padding: 24px;
+  border: 1px solid #e3d9cd;
+  border-radius: 16px;
+  background: #fffdf8;
+}
+
+.settings-card-heading { margin-bottom: 20px; }
+.settings-card-heading h2 { margin: 0 0 6px; color: #51443c; font-size: 19px; }
+.settings-card-heading p { font-size: 14px; }
+
+.profile-editor { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.profile-avatar, .sidebar-profile-photo {
+  display: grid; place-items: center; width: 72px; height: 72px; overflow: hidden;
+  border-radius: 50%; background: #eee4d8; color: #6b5143; font-size: 28px; font-weight: 800;
+}
+.profile-avatar img, .sidebar-profile-photo { object-fit: cover; }
+.profile-avatar img { width: 100%; height: 100%; }
+.sidebar-profile-photo { width: 48px; height: 48px; margin: 0 0 14px; }
+.photo-button, .settings-save, .account-logout {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 40px;
+  padding: 9px 14px; border: 1px solid #d8cbbd; border-radius: 10px;
+  background: #fffdf8; color: #51443c; font-weight: 700; cursor: pointer;
+}
+.photo-button input { display: none; }
+.settings-field { display: grid; gap: 8px; max-width: 420px; color: #51443c; font-weight: 700; }
+.settings-field input, .settings-field select {
+  width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #d8cbbd;
+  border-radius: 10px; background: #fffdf8; color: #352b26; outline: none;
+}
+.settings-field input:focus, .settings-field select:focus { border-color: #6b5143; box-shadow: 0 0 0 3px rgba(107, 81, 67, 0.16); }
+.settings-actions { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.settings-actions span { color: #6b5143; font-size: 14px; }
+.settings-save { border: none; background: #6b5143; color: #fffdf8; }
+.settings-save:hover { background: #503b30; }
+.settings-option { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; border-top: 1px solid #eee7dc; cursor: pointer; }
+.settings-option span { display: grid; gap: 5px; }
+.settings-option strong { color: #51443c; }
+.settings-option small { color: #81756d; font-size: 13px; }
+.settings-option input { width: 20px; height: 20px; accent-color: #6b5143; }
+.summary-setting { margin-top: 16px; }
+.account-email { color: #475569; }
+.account-logout { border-color: #fecdd3; background: #fff1f2; color: #be123c; }
+
+/* 다크 모드 */
+.app.dark-mode { background: #352b26; color: #e3d9cd; }
+.dark-mode .workspace { background: #352b26; }
+.dark-mode .sidebar, .dark-mode .settings-card, .dark-mode .document-list,
+.dark-mode .detail-panel, .dark-mode .stats div, .dark-mode .document-card {
+  background: #1e293b; border-color: #51443c;
+}
+.dark-mode .logo { color: #eadfd5; }
+.dark-mode .welcome-message, .dark-mode .settings-header p,
+.dark-mode .settings-card-heading p, .dark-mode .settings-option small,
+.dark-mode .account-email { color: #94a3b8; }
+.dark-mode .settings-header h1, .dark-mode .settings-card-heading h2,
+.dark-mode .settings-field, .dark-mode .settings-option strong,
+.dark-mode .detail-panel, .dark-mode .document-list { color: #e3d9cd; }
+.dark-mode .side-nav button { color: #d8cbbd; }
+.dark-mode .side-nav button:hover { background: #51443c; }
+.dark-mode .side-nav button.active { background: #6b5143; color: #cbb9ad; }
+.dark-mode .settings-field input, .dark-mode .settings-field select,
+.dark-mode .photo-button { background: #352b26; border-color: #475569; color: #e3d9cd; }
+.dark-mode .settings-option { border-color: #51443c; }
+
+/* ==============================
+   반응형 화면
+============================== */
+
+/* 반응형 CSS 추가 (7주차 슬라이드) */
+@media (width <= 900px) {
+  .input-mode-options,
+  .optional-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1000px) {
+  .app {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    padding: 20px;
+  }
+
+  .workspace {
+    padding: 24px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e3d9cd;
+  }
+
+  .side-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .side-nav button {
+    padding: 10px 6px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .logout-btn {
+    margin-top: 20px;
+  }
+
+  .workspace {
+    padding: 20px 16px;
+  }
+
+  .all-tasks-card {
+    padding: 22px 18px;
+  }
+
+  .all-task-row {
+    gap: 12px;
+  }
+
+  .document-form {
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-page {
+    padding: 16px;
+  }
+
+  .auth-card {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+
+  .auth-tabs {
+    margin-bottom: 28px;
+  }
+
+  .auth-tab {
+    min-height: 50px;
+    font-size: 17px;
+  }
+
+  .auth-form {
+    gap: 20px;
+  }
+
+  .auth-field label {
+    font-size: 15px;
+  }
+
+  .auth-field input {
+    min-height: 52px;
+    font-size: 15px;
+  }
+
+  .auth-submit {
+    min-height: 54px;
+    font-size: 17px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stats div {
+    padding: 14px;
+  }
+
+  .stats strong {
+    font-size: 24px;
+  }
+
+  .tasks-heading h1 {
+    font-size: 24px;
+  }
+
+  .all-task-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .all-task-row small {
+    padding-left: 34px;
+  }
+
+  .add-task {
+    flex-direction: column;
+  }
+
+  .add-task button {
+    min-height: 42px;
+  }
+}
+
+.analysis-preview {
+  grid-column: 1 / -1;
+  padding: 20px;
+  border: 1px solid #d8cbbd;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.preview-tasks { padding-left: 20px; }
+.preview-tasks li { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+
+.sidebar-profile { display:flex; align-items:center; gap:10px; margin: 0 0 14px; color:#51443c; font-weight:700; }
+.sidebar-profile-photo { width:44px; height:44px; border-radius:50%; object-fit:cover; flex:none; }
+.summary-length-field { display:flex; flex-direction:column; gap:8px; max-width:300px; }
+.summary-length-field select { min-height:44px; padding:10px 12px; border:1px solid #d8cbbd; border-radius:10px; background:#fffdf8; color:#352b26; font:inherit; }
+
+/* Warm, readable palette refinements */
+:root { --hover: #cbb9ad; --text-accent: #574234; }
+.side-nav button:hover, .input-mode-options button:hover { background: #cbb9ad; color: #574234; }
+.side-nav button.active { background: #cbb9ad; color: #574234; }
+.document-card:hover { border-color: #cbb9ad; }
+.document-card.active { background: #cbb9ad; color: #574234; }
+.tasks-heading p, .all-task-row small, .all-task-row.completed span, .all-task-row.completed small, .task-document-group h3, .welcome-message { color: #574234; }
+.badge.normal, .badge.warning, .badge.danger, .file-type { background: #eee4d8; color: #574234; }
+.delete-doc-btn, .account-logout { border-color: #cbb9ad; background: #eee4d8; color: #574234; }
+.delete-doc-btn:hover, .account-logout:hover { background: #cbb9ad; color: #574234; }
+.app.dark-mode { background: #35271f; color: #f5eee7; }
+.dark-mode .workspace, .dark-mode .sidebar, .dark-mode .settings-card, .dark-mode .document-list, .dark-mode .detail-panel, .dark-mode .stats div, .dark-mode .document-card, .dark-mode .all-tasks-card { background: #46352b; border-color: #725a4b; color: #f5eee7; }
+.dark-mode .logo, .dark-mode .eyebrow, .dark-mode .settings-header h1, .dark-mode .settings-card-heading h2, .dark-mode .tasks-heading h1 { color: #eadfd5; }
+.dark-mode .welcome-message, .dark-mode .settings-header p, .dark-mode .settings-card-heading p, .dark-mode .settings-option small, .dark-mode .account-email, .dark-mode .tasks-heading p, .dark-mode .all-task-row label, .dark-mode .all-task-row small, .dark-mode .task-document-group h3 { color: #e2d4c9; }
+.dark-mode .side-nav button { color: #f5eee7; }
+.dark-mode .side-nav button:hover, .dark-mode .side-nav button.active, .dark-mode .input-mode-options .active, .dark-mode .document-card.active { background: #cbb9ad; color: #46352b; }
+.dark-mode .settings-field input, .dark-mode .settings-field select, .dark-mode .summary-length-field select, .dark-mode .photo-button { background: #35271f; border-color: #725a4b; color: #f5eee7; }
+.dark-mode .summary-box, .dark-mode .summary-preview, .dark-mode .file-upload, .dark-mode .link-box { background: #574234; color: #f5eee7; border-color: #8a6e5c; }
+.dark-mode .summary-box p, .dark-mode .summary-preview p, .dark-mode .summary-preview strong { color: #f5eee7; }
+.dark-mode .all-task-row.completed span, .dark-mode .all-task-row.completed small { color: #cbb9ad; }
+.dark-mode .settings-option { border-color: #725a4b; }
+
+/* Final contrast pass for warm light and dark themes */
+.all-task-row label, .summary-box p, .summary-preview p { color: #574234; }
+.form-help, .document-form small, .file-upload small, .link-box small { color: #574234; }
+.auth-field input:focus, .document-form input:focus, .document-form textarea:focus { border-color: #80604e; box-shadow: 0 0 0 3px rgba(107, 81, 67, .16); }
+.dark-mode .all-task-row label, .dark-mode .summary-box p, .dark-mode .summary-preview p, .dark-mode .form-help, .dark-mode .document-form small, .dark-mode .file-upload small, .dark-mode .link-box small { color: #f5eee7; }
+.dark-mode .summary-length-field select { background: #35271f; color: #f5eee7; border-color: #8a6e5c; }
+.dark-mode .document-form input, .dark-mode .document-form textarea { background: #35271f; color: #f5eee7; border-color: #8a6e5c; }
+
+.app {
+  height: 100dvh;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.sidebar {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.sidebar > * { flex-shrink: 0; }
+.logout-btn { position: sticky; bottom: 0; }
+.workspace { min-height: 0; overflow-y: auto; }
+.summary-box p { white-space: pre-wrap; }
+.task-actions { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.add-task { flex-wrap: wrap; align-items: end; }
+.add-task > input { min-width: 150px; }
+.add-task > label { display: grid; gap: 4px; font-size: 13px; }
+
+.dark-mode { color-scheme: dark; }
+.dark-mode.auth-page { background: #35271f; }
+.dark-mode .auth-card, .dark-mode .document-form, .dark-mode .analysis-preview {
+  background: #46352b;
+  border-color: #725a4b;
+  color: #f5eee7;
+}
+.dark-mode .auth-field input, .dark-mode .topbar input, .dark-mode .add-task input,
+.dark-mode .input-mode-options button:not(.active) {
+  background: #35271f;
+  border-color: #8a6e5c;
+  color: #f5eee7;
+}
+.dark-mode .auth-field label, .dark-mode .auth-footer, .dark-mode .auth-link,
+.dark-mode .notice, .dark-mode .empty,
+.dark-mode .create-page h1, .dark-mode .document-form label,
+.dark-mode .settings-field, .dark-mode .settings-option strong,
+.dark-mode .settings-actions span, .dark-mode .sidebar-profile,
+.dark-mode .document-card strong, .dark-mode .document-card small,
+.dark-mode .stats strong, .dark-mode .stats span, .dark-mode .detail-panel h2 {
+  color: inherit;
+}
+
+.dark-mode .error, .dark-mode .auth-error { color: #fda4af; }
+
+@media (max-width: 700px) {
+  .app { grid-template-rows: auto minmax(0, 1fr); }
+  .sidebar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    max-height: 50dvh;
+    padding: 10px 16px;
+  }
+  .sidebar .logo, .sidebar .logout-btn, .sidebar .new-doc, .sidebar .side-nav { margin: 0; }
+  .sidebar .welcome-message { display: none; }
+  .sidebar .sidebar-profile { grid-column: 1 / -1; margin: 0; overflow-wrap: anywhere; }
+  .sidebar .sidebar-profile-photo { width: 32px; height: 32px; }
+  .sidebar .side-nav { grid-column: 1 / -1; grid-row: 4; }
+  .sidebar .logout-btn { grid-column: 2; grid-row: 1; width: auto; padding: 8px 10px; }
+  .sidebar .new-doc { grid-column: 1 / -1; }
+}
+
+/* Keep the original reading colors on the dark workspace. */
+.dark-mode :is(.auth-card, .settings-card, .document-list, .detail-panel,
+  .stats div, .document-card, .document-form, .analysis-preview, .all-tasks-card) {
+  background: #fffdf8;
+  border-color: #d8cbbd;
+  color: #51443c;
+  color-scheme: light;
+}
+
+.dark-mode :is(.summary-box, .summary-preview, .file-upload, .link-box) {
+  background: #f5f1e7;
+  border-color: #d8cbbd;
+  color: #51443c;
+}
+
+.dark-mode :is(.summary-box p, .summary-preview p, .summary-preview strong,
+  .settings-card-heading h2, .settings-card-heading p, .settings-option small,
+  .account-email, .all-task-row label, .all-task-row small,
+  .all-task-row.completed span, .all-task-row.completed small,
+  .task-document-group h3, .form-help, .document-form small) {
+  color: #574234;
+}
+
+.dark-mode :is(.auth-field input, .topbar input, .add-task input, .settings-field input,
+  .settings-field select, .summary-length-field select, .document-form input,
+  .document-form textarea, .photo-button, .input-mode-options button:not(.active)) {
+  background: #fffdf8;
+  border-color: #d8cbbd;
+  color: #352b26;
+  color-scheme: light;
+}
+
+.dark-mode .document-card.active { background: #eee4d8; }
+.dark-mode :is(.auth-card, .document-form) :is(.error, .auth-error) { color: #a52842; }
